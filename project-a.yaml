@@ -1,0 +1,1065 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 6a1514d974d660f8e34bb33426c4b6b3a80e9a2ffb38d7041c917adaba30d385
+      cni.projectcalico.org/podIP: 192.168.140.46/32
+      cni.projectcalico.org/podIPs: 192.168.140.46/32
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generateName: helloworld-deployment-6d7d54b499-
+    labels:
+      app: helloworld
+      pod-template-hash: 6d7d54b499
+    name: helloworld-deployment-6d7d54b499-djwms
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: helloworld-deployment-6d7d54b499
+      uid: 703c525a-c436-49b5-869f-93121e3407e0
+    resourceVersion: "62773"
+    uid: e3928d4c-0707-4d32-9e03-dfb724273f78
+  spec:
+    containers:
+    - image: amitvashist7/k8s-tiny-web
+      imagePullPolicy: IfNotPresent
+      name: k8s-demo
+      ports:
+      - containerPort: 80
+        name: myappport
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-vm2x9
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: regcred
+    nodeName: k8s-worker-2
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-vm2x9
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:58Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:58Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:58Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://913d7ef1ad83191b6ad689ac868fa01f7049c359ef4dc6bc27a80b368d44c49a
+      image: docker.io/amitvashist7/k8s-tiny-web:latest
+      imageID: docker.io/amitvashist7/k8s-tiny-web@sha256:ab8d3012f88695ba9769007413712692ecaa5b748e0b61f905136f8aa3c20e81
+      lastState: {}
+      name: k8s-demo
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-08-22T06:15:57Z"
+    hostIP: 10.128.0.6
+    hostIPs:
+    - ip: 10.128.0.6
+    phase: Running
+    podIP: 192.168.140.46
+    podIPs:
+    - ip: 192.168.140.46
+    qosClass: BestEffort
+    startTime: "2024-08-22T06:15:55Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 55e214882818fb347597ddddb1023bcef052d256b7b54a1fb0e2fe0040ecdb39
+      cni.projectcalico.org/podIP: 192.168.230.48/32
+      cni.projectcalico.org/podIPs: 192.168.230.48/32
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generateName: helloworld-deployment-6d7d54b499-
+    labels:
+      app: helloworld
+      pod-template-hash: 6d7d54b499
+    name: helloworld-deployment-6d7d54b499-khjlk
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: helloworld-deployment-6d7d54b499
+      uid: 703c525a-c436-49b5-869f-93121e3407e0
+    resourceVersion: "62734"
+    uid: 9f556e5d-b1e0-4f74-980d-208fd5f22d47
+  spec:
+    containers:
+    - image: amitvashist7/k8s-tiny-web
+      imagePullPolicy: IfNotPresent
+      name: k8s-demo
+      ports:
+      - containerPort: 80
+        name: myappport
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-hsr89
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: regcred
+    nodeName: k8s-worker-1
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-hsr89
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://df2f537d1da18740c401b4486c6ff0b809c2abd0f49d119068b5c7a06a7a13f4
+      image: docker.io/amitvashist7/k8s-tiny-web:latest
+      imageID: docker.io/amitvashist7/k8s-tiny-web@sha256:ab8d3012f88695ba9769007413712692ecaa5b748e0b61f905136f8aa3c20e81
+      lastState: {}
+      name: k8s-demo
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-08-22T06:15:56Z"
+    hostIP: 10.128.0.5
+    hostIPs:
+    - ip: 10.128.0.5
+    phase: Running
+    podIP: 192.168.230.48
+    podIPs:
+    - ip: 192.168.230.48
+    qosClass: BestEffort
+    startTime: "2024-08-22T06:15:55Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: fec66d80c636a48cf3aa2ab9a2197ec201bc83d878dd910fca6232fff50f5636
+      cni.projectcalico.org/podIP: 192.168.140.48/32
+      cni.projectcalico.org/podIPs: 192.168.140.48/32
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generateName: helloworld-deployment-6d7d54b499-
+    labels:
+      app: helloworld
+      pod-template-hash: 6d7d54b499
+    name: helloworld-deployment-6d7d54b499-zc8jr
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: helloworld-deployment-6d7d54b499
+      uid: 703c525a-c436-49b5-869f-93121e3407e0
+    resourceVersion: "62783"
+    uid: 51a5b817-bd74-4733-8467-48ab3fe52993
+  spec:
+    containers:
+    - image: amitvashist7/k8s-tiny-web
+      imagePullPolicy: IfNotPresent
+      name: k8s-demo
+      ports:
+      - containerPort: 80
+        name: myappport
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-mpr6v
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: regcred
+    nodeName: k8s-worker-2
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-mpr6v
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:59Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:59Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:59Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://c9be5686f3159f39dc6c9a5569306371787b7b6f0bdf39169646d225095069aa
+      image: docker.io/amitvashist7/k8s-tiny-web:latest
+      imageID: docker.io/amitvashist7/k8s-tiny-web@sha256:ab8d3012f88695ba9769007413712692ecaa5b748e0b61f905136f8aa3c20e81
+      lastState: {}
+      name: k8s-demo
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-08-22T06:15:58Z"
+    hostIP: 10.128.0.6
+    hostIPs:
+    - ip: 10.128.0.6
+    phase: Running
+    podIP: 192.168.140.48
+    podIPs:
+    - ip: 192.168.140.48
+    qosClass: BestEffort
+    startTime: "2024-08-22T06:15:55Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 0bd7fc9924efe8bac79e91ffe8f8bae1add8f824645c6d5e180c4589dcd36cf7
+      cni.projectcalico.org/podIP: 192.168.230.49/32
+      cni.projectcalico.org/podIPs: 192.168.230.49/32
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generateName: python-webapp-deployment-5c9cb74d94-
+    labels:
+      app: python-webapp
+      pod-template-hash: 5c9cb74d94
+    name: python-webapp-deployment-5c9cb74d94-s2cmr
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: python-webapp-deployment-5c9cb74d94
+      uid: 857d4703-030e-45f5-916f-6b5e4d85448b
+    resourceVersion: "62740"
+    uid: 0a216a16-6419-4189-92a1-372c7cd46485
+  spec:
+    containers:
+    - image: amitvashist7/mypython-web-app:v4
+      imagePullPolicy: IfNotPresent
+      name: k8s-demo
+      ports:
+      - containerPort: 8081
+        name: myapp-port
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-27vsd
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: regcred
+    nodeName: k8s-worker-1
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-27vsd
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://827ab0a2d388657932a99cff4ed111ba5f2feae8c2b2149dd4ef4c401c3f25eb
+      image: docker.io/amitvashist7/mypython-web-app:v4
+      imageID: docker.io/amitvashist7/mypython-web-app@sha256:772b3ce5d539777c24a829e26486fe37c847365e616f5b07b1049e72bceddd58
+      lastState: {}
+      name: k8s-demo
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-08-22T06:15:56Z"
+    hostIP: 10.128.0.5
+    hostIPs:
+    - ip: 10.128.0.5
+    phase: Running
+    podIP: 192.168.230.49
+    podIPs:
+    - ip: 192.168.230.49
+    qosClass: BestEffort
+    startTime: "2024-08-22T06:15:55Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 423f088e1e97f554407d00dece5f36e19fe2745cdb85931765080a0f3511195c
+      cni.projectcalico.org/podIP: 192.168.230.50/32
+      cni.projectcalico.org/podIPs: 192.168.230.50/32
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generateName: python-webapp-deployment-5c9cb74d94-
+    labels:
+      app: python-webapp
+      pod-template-hash: 5c9cb74d94
+    name: python-webapp-deployment-5c9cb74d94-sbhjf
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: python-webapp-deployment-5c9cb74d94
+      uid: 857d4703-030e-45f5-916f-6b5e4d85448b
+    resourceVersion: "62727"
+    uid: 00f93b1c-fef5-4591-aabc-093f562c926e
+  spec:
+    containers:
+    - image: amitvashist7/mypython-web-app:v4
+      imagePullPolicy: IfNotPresent
+      name: k8s-demo
+      ports:
+      - containerPort: 8081
+        name: myapp-port
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-74vpx
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: regcred
+    nodeName: k8s-worker-1
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-74vpx
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:56Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://430644ad4cc306f8cc73e416c78efe85adf29b5f1df8ee18292d48672399cbd5
+      image: docker.io/amitvashist7/mypython-web-app:v4
+      imageID: docker.io/amitvashist7/mypython-web-app@sha256:772b3ce5d539777c24a829e26486fe37c847365e616f5b07b1049e72bceddd58
+      lastState: {}
+      name: k8s-demo
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-08-22T06:15:56Z"
+    hostIP: 10.128.0.5
+    hostIPs:
+    - ip: 10.128.0.5
+    phase: Running
+    podIP: 192.168.230.50
+    podIPs:
+    - ip: 192.168.230.50
+    qosClass: BestEffort
+    startTime: "2024-08-22T06:15:55Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      cni.projectcalico.org/containerID: 053cbe2bf67e6ea151131f627a4299edb9ccc470ddc2a2c30d4482cdb8d8908d
+      cni.projectcalico.org/podIP: 192.168.140.44/32
+      cni.projectcalico.org/podIPs: 192.168.140.44/32
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generateName: python-webapp-deployment-5c9cb74d94-
+    labels:
+      app: python-webapp
+      pod-template-hash: 5c9cb74d94
+    name: python-webapp-deployment-5c9cb74d94-vl7bj
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: python-webapp-deployment-5c9cb74d94
+      uid: 857d4703-030e-45f5-916f-6b5e4d85448b
+    resourceVersion: "62767"
+    uid: 9fc5ba44-0c55-4c32-9581-b8211fb01ac9
+  spec:
+    containers:
+    - image: amitvashist7/mypython-web-app:v4
+      imagePullPolicy: IfNotPresent
+      name: k8s-demo
+      ports:
+      - containerPort: 8081
+        name: myapp-port
+        protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: kube-api-access-446rd
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: regcred
+    nodeName: k8s-worker-2
+    preemptionPolicy: PreemptLowerPriority
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext: {}
+    serviceAccount: default
+    serviceAccountName: default
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: kube-api-access-446rd
+      projected:
+        defaultMode: 420
+        sources:
+        - serviceAccountToken:
+            expirationSeconds: 3607
+            path: token
+        - configMap:
+            items:
+            - key: ca.crt
+              path: ca.crt
+            name: kube-root-ca.crt
+        - downwardAPI:
+            items:
+            - fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+              path: namespace
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:58Z"
+      status: "True"
+      type: PodReadyToStartContainers
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:58Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:58Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-08-22T06:15:55Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://0a2d74e41beac8469e4a128741932d1b87e7b5900ad65fabfc279e84de79544c
+      image: docker.io/amitvashist7/mypython-web-app:v4
+      imageID: docker.io/amitvashist7/mypython-web-app@sha256:772b3ce5d539777c24a829e26486fe37c847365e616f5b07b1049e72bceddd58
+      lastState: {}
+      name: k8s-demo
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-08-22T06:15:57Z"
+    hostIP: 10.128.0.6
+    hostIPs:
+    - ip: 10.128.0.6
+    phase: Running
+    podIP: 192.168.140.44
+    podIPs:
+    - ip: 192.168.140.44
+    qosClass: BestEffort
+    startTime: "2024-08-22T06:15:55Z"
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"helloworld-service","namespace":"project-b"},"spec":{"ports":[{"nodePort":31001,"port":31005,"protocol":"TCP","targetPort":"myappport"}],"selector":{"app":"helloworld"},"type":"NodePort"}}
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    name: helloworld-service
+    namespace: project-b
+    resourceVersion: "62658"
+    uid: fbe8acc4-209a-4466-b969-6103b399a054
+  spec:
+    clusterIP: 10.102.156.226
+    clusterIPs:
+    - 10.102.156.226
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31001
+      port: 31005
+      protocol: TCP
+      targetPort: myappport
+    selector:
+      app: helloworld
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"python-webapp-svc","namespace":"project-b"},"spec":{"ports":[{"nodePort":31007,"port":31007,"protocol":"TCP","targetPort":"myapp-port"}],"selector":{"app":"python-webapp"},"type":"NodePort"}}
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    name: python-webapp-svc
+    namespace: project-b
+    resourceVersion: "62674"
+    uid: 5e87611d-02a8-463a-b762-cfbaa3e69808
+  spec:
+    clusterIP: 10.104.237.99
+    clusterIPs:
+    - 10.104.237.99
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 31007
+      port: 31007
+      protocol: TCP
+      targetPort: myapp-port
+    selector:
+      app: python-webapp
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"helloworld"},"name":"helloworld-deployment","namespace":"project-b"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"helloworld"}},"template":{"metadata":{"labels":{"app":"helloworld"}},"spec":{"containers":[{"image":"amitvashist7/k8s-tiny-web","imagePullPolicy":"IfNotPresent","name":"k8s-demo","ports":[{"containerPort":80,"name":"myappport"}]}],"imagePullSecrets":[{"name":"regcred"}]}}}}
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generation: 1
+    labels:
+      app: helloworld
+    name: helloworld-deployment
+    namespace: project-b
+    resourceVersion: "62789"
+    uid: cb38e677-d7a6-4b24-b4da-5bfea4d53529
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: helloworld
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: helloworld
+      spec:
+        containers:
+        - image: amitvashist7/k8s-tiny-web
+          imagePullPolicy: IfNotPresent
+          name: k8s-demo
+          ports:
+          - containerPort: 80
+            name: myappport
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+        - name: regcred
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    conditions:
+    - lastTransitionTime: "2024-08-22T06:15:59Z"
+      lastUpdateTime: "2024-08-22T06:15:59Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2024-08-22T06:15:55Z"
+      lastUpdateTime: "2024-08-22T06:15:59Z"
+      message: ReplicaSet "helloworld-deployment-6d7d54b499" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 3
+    replicas: 3
+    updatedReplicas: 3
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    annotations:
+      deployment.kubernetes.io/revision: "1"
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"python-webapp"},"name":"python-webapp-deployment","namespace":"project-b"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"python-webapp"}},"template":{"metadata":{"labels":{"app":"python-webapp"}},"spec":{"containers":[{"image":"amitvashist7/mypython-web-app:v4","imagePullPolicy":"IfNotPresent","name":"k8s-demo","ports":[{"containerPort":8081,"name":"myapp-port"}]}],"imagePullSecrets":[{"name":"regcred"}]}}}}
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generation: 1
+    labels:
+      app: python-webapp
+    name: python-webapp-deployment
+    namespace: project-b
+    resourceVersion: "62774"
+    uid: 1e8a06c1-033f-43c0-a1a9-7440c27be4d2
+  spec:
+    progressDeadlineSeconds: 600
+    replicas: 3
+    revisionHistoryLimit: 10
+    selector:
+      matchLabels:
+        app: python-webapp
+    strategy:
+      rollingUpdate:
+        maxSurge: 25%
+        maxUnavailable: 25%
+      type: RollingUpdate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: python-webapp
+      spec:
+        containers:
+        - image: amitvashist7/mypython-web-app:v4
+          imagePullPolicy: IfNotPresent
+          name: k8s-demo
+          ports:
+          - containerPort: 8081
+            name: myapp-port
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+        - name: regcred
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    conditions:
+    - lastTransitionTime: "2024-08-22T06:15:58Z"
+      lastUpdateTime: "2024-08-22T06:15:58Z"
+      message: Deployment has minimum availability.
+      reason: MinimumReplicasAvailable
+      status: "True"
+      type: Available
+    - lastTransitionTime: "2024-08-22T06:15:55Z"
+      lastUpdateTime: "2024-08-22T06:15:58Z"
+      message: ReplicaSet "python-webapp-deployment-5c9cb74d94" has successfully progressed.
+      reason: NewReplicaSetAvailable
+      status: "True"
+      type: Progressing
+    observedGeneration: 1
+    readyReplicas: 3
+    replicas: 3
+    updatedReplicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generation: 1
+    labels:
+      app: helloworld
+      pod-template-hash: 6d7d54b499
+    name: helloworld-deployment-6d7d54b499
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: helloworld-deployment
+      uid: cb38e677-d7a6-4b24-b4da-5bfea4d53529
+    resourceVersion: "62788"
+    uid: 703c525a-c436-49b5-869f-93121e3407e0
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: helloworld
+        pod-template-hash: 6d7d54b499
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: helloworld
+          pod-template-hash: 6d7d54b499
+      spec:
+        containers:
+        - image: amitvashist7/k8s-tiny-web
+          imagePullPolicy: IfNotPresent
+          name: k8s-demo
+          ports:
+          - containerPort: 80
+            name: myappport
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+        - name: regcred
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    fullyLabeledReplicas: 3
+    observedGeneration: 1
+    readyReplicas: 3
+    replicas: 3
+- apiVersion: apps/v1
+  kind: ReplicaSet
+  metadata:
+    annotations:
+      deployment.kubernetes.io/desired-replicas: "3"
+      deployment.kubernetes.io/max-replicas: "4"
+      deployment.kubernetes.io/revision: "1"
+    creationTimestamp: "2024-08-22T06:15:55Z"
+    generation: 1
+    labels:
+      app: python-webapp
+      pod-template-hash: 5c9cb74d94
+    name: python-webapp-deployment-5c9cb74d94
+    namespace: project-b
+    ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Deployment
+      name: python-webapp-deployment
+      uid: 1e8a06c1-033f-43c0-a1a9-7440c27be4d2
+    resourceVersion: "62771"
+    uid: 857d4703-030e-45f5-916f-6b5e4d85448b
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: python-webapp
+        pod-template-hash: 5c9cb74d94
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: python-webapp
+          pod-template-hash: 5c9cb74d94
+      spec:
+        containers:
+        - image: amitvashist7/mypython-web-app:v4
+          imagePullPolicy: IfNotPresent
+          name: k8s-demo
+          ports:
+          - containerPort: 8081
+            name: myapp-port
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+        dnsPolicy: ClusterFirst
+        imagePullSecrets:
+        - name: regcred
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+  status:
+    availableReplicas: 3
+    fullyLabeledReplicas: 3
+    observedGeneration: 1
+    readyReplicas: 3
+    replicas: 3
+kind: List
+metadata:
+  resourceVersion: ""
